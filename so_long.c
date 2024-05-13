@@ -6,7 +6,7 @@
 /*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/10 15:26:41 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:17:05 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		if ((ft_strncmp(av[1], ".ber", 5) != 0))
-			exit (write (2, "Error\n map not .ber\n", 20));
+			exit (write (2, "Error\nmap not .ber\n", 19));
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
 			exit (write (2, "Error\n error open\n", 19));
 		tmp = get_next_line(fd);
+		if (tmp == NULL)
+			exit (write (2, "Error\nmap not found\n", 21));
 		while (tmp != NULL)
 		{
 			if (*tmp == '\n')
@@ -41,7 +43,10 @@ int	main(int ac, char **av)
 		smap.map = ft_split(cont, '\n');
 		for (int i=0; smap.map[i] != NULL;i++)
 			printf("%s\n", smap.map[i]);
+		ft_shape(&smap);
 		ft_border_cop(&smap);
+		check_char(&smap);
+		check_coll(&smap);
 		close (fd);
 	}
 	return (0);
