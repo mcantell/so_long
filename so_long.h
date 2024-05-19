@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/13 16:07:26 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/19 05:40:31 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 # define SO_LONG_H
 # include "get_next_line.h"
 
+typedef struct s_coord
+{
+	int	side;
+	int	colum;
+}	t_coord;
+
 typedef struct s_game
 {
 	char	**map;
+	char	**cmap;
 	int		p_x;
 	int		p_y;
 	int		x;
@@ -34,5 +41,12 @@ int		matrix_len(t_game *smap);
 void	ft_border_cop(t_game *smap);
 void	ft_shape(t_game *smap);
 int		check_coll(t_game *smap);
-
+void	check_path(t_game *smap);
+int		p_column(t_game *smap, char c, int i);
+int		p_line(t_game *smap, char c);
+int		count(t_game *cmap, char c);
+void	fill(char **tab, int size, int column, t_coord cur);
+void	check_char(t_game *smap);
+void	free_matrix(char **cmap);
+void	ft_free(char **str);
 #endif

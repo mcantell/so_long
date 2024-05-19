@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_copy.c                                      :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 11:51:25 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/13 12:01:56 by mcantell         ###   ########.fr       */
+/*   Created: 2024/05/19 04:51:43 by mcantell          #+#    #+#             */
+/*   Updated: 2024/05/19 05:02:26 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**matrix_copy(t_game *smap)
+void	ft_free(char **str)
 {
-	char	**cmap;
-	int		i;
+	int	i;
 
-	i = matrix_len(smap) - 1;
-	cmap = malloc(sizeof(char *) * (i + 1));
+	if (!str)
+		return ;
 	i = 0;
-	while (smap->map[i] != NULL)
+	while (str[i])
 	{
-		cmap[i] = smap->map[i];
+		free(str[i]);
 		i++;
 	}
-	return (cmap);
+	free(str);
 }

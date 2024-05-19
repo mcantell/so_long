@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cop_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:20:54 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/13 16:16:47 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/19 04:47:58 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,6 @@ void	ft_shape(t_game *smap)
 	}
 }
 
-// void	fill(char **tab, t_game size, t_game cur, char to_fill)
-// {
-// 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0
-// 		|| cur.x >= size.x || tab[cur.y][cur.x] != to_fill)
-// 		return ;
-// 	tab[cur.y][cur.x] = 'F';
-// 	fill(tab, size, (t_game){cur.x - 1, cur.y}, to_fill);
-// 	fill(tab, size, (t_game){cur.x + 1, cur.y}, to_fill);
-// 	fill(tab, size, (t_game){cur.x, cur.y - 1}, to_fill);
-// 	fill(tab, size, (t_game){cur.x, cur.y + 1}, to_fill);
-// }
-
 int	check_coll(t_game *smap)
 {
 	int	i;
@@ -118,8 +106,8 @@ void	check_char(t_game *smap)
 		t = 0;
 		while (smap->map[i][t])
 		{
-			if (smap->map[i][t] != 'C' || smap->map[i][t] != 'P' ||
-				smap->map[i][t] != 'E' || smap->map[i][t] != '1' ||
+			if (smap->map[i][t] != 'C' && smap->map[i][t] != 'P' &&
+				smap->map[i][t] != 'E' && smap->map[i][t] != '1' &&
 				smap->map[i][t] != '0')
 				exit (write (2, "Error\nunwanted character", 25));
 			t++;
