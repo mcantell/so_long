@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 03:39:48 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 12:33:51 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:17:24 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	check_path(t_game *smap)
 	e = 0;
 	p_c.side = p_line(smap, 'P');
 	p_c.colum = p_column(smap, 'P', p_c.side);
-	smap->cmap = smap->map;
+	smap->cmap = matrix_copy(smap);
 	fill(smap->cmap, matrix_len(smap) - 1, ft_strlen(smap->cmap[0]) - 1, p_c);
 	e += count(smap, 'E');
 	c += count (smap, 'C');

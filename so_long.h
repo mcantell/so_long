@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 12:15:29 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:15:06 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,6 @@ void	fill(char **tab, int size, int column, t_coord cur);
 void	check_char(t_game *smap);
 void	free_matrix(char **cmap);
 void	ft_free(char **str);
+char	**matrix_copy(t_game *smap);
+char	*ft_strdup(char *s1);
 #endif

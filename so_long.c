@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 12:04:53 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:19:52 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ int	main(int ac, char **av)
 			tmp = get_next_line(fd);
 		}
 		smap.map = ft_split(cont, '\n');
-		// for (int i=0; smap.map[i] != NULL;i++)
-		// 	printf("%s\n", smap.map[i]);
 		ft_shape(&smap);
 		ft_border_cop(&smap);
 		check_char(&smap);
