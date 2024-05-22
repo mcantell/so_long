@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 03:39:48 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 14:17:24 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:37:02 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ void	check_path(t_game *smap)
 	c += count (smap, 'C');
 	if (c != 0 || e != 0)
 		exit (write (2, "Error\nroute not avaiable\n", 26));
+	ft_free(smap->cmap);
 }

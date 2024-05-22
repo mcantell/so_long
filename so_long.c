@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 14:19:52 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:36:15 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	main(int ac, char **av)
 		check_coll(&smap);
 		check_path(&smap);
 		close (fd);
+		ft_free(smap.map);
+		free(cont);
 	}
 	return (0);
 }
