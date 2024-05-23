@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strutils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:58 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/10 11:46:10 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:14:13 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (f);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**str;
 	size_t	i;

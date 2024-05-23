@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:00:06 by mcantell          #+#    #+#             */
-/*   Updated: 2024/03/13 15:09:49 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:02:55 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,22 @@ char	*legge_la_linea(int fd, char *left_line)
 	return (left_line);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int i)
 {
 	char		*linea;
 	static char	*left_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
+		return (exit (write (2, "Error\nerror open", 17)), NULL);
 	left_line = legge_la_linea(fd, left_line);
 	if (!left_line)
 		return (NULL);
 	linea = prendi(left_line);
 	left_line = checkpoint(left_line);
+	if (i == 0)
+	{
+		free(linea);
+		free (left_line);
+	}
 	return (linea);
 }

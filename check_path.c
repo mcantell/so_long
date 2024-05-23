@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 03:39:48 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 15:37:02 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:32:05 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	p_line(t_game *smap, char c)
 		}
 		i++;
 	}
+	ft_free (smap->map);
 	exit (write (2, "Error\nPlayer not found\n", 24));
 }
 
@@ -78,6 +79,7 @@ int	p_column(t_game *smap, char c, int i)
 			return (t);
 		t++;
 	}
+	ft_free (smap->map);
 	exit (write (2, "Error\nPlayer not found\n", 24));
 }
 
@@ -96,6 +98,10 @@ void	check_path(t_game *smap)
 	e += count(smap, 'E');
 	c += count (smap, 'C');
 	if (c != 0 || e != 0)
+	{
+		ft_free (smap->cmap);
+		ft_free (smap->map);
 		exit (write (2, "Error\nroute not avaiable\n", 26));
+	}
 	ft_free(smap->cmap);
 }

@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:20:54 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/19 04:47:58 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:34:24 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_border_cop(t_game *smap)
 	while (smap->map[0][t] != '\0')
 	{
 		if (smap->map[i][t] != '1' || smap->map[0][t] != '1')
-			exit (write (2, "Error\nerror border open", 24));
+			return (ft_free(smap->map),
+				exit (write (2, "Error\nerror border open\n", 25)));
 		t++;
 	}
 	if (i != 1)
@@ -32,7 +33,8 @@ void	ft_border_cop(t_game *smap)
 		{
 			t = ft_strlen(smap->map[i]) - 1;
 			if (smap->map[i][0] != '1' || smap->map[i][t] != '1')
-				exit (write (2, "Error\nerror border open", 24));
+				return (ft_free(smap->map),
+					exit (write (2, "Error\nerror border open\n", 25)));
 			i++;
 		}
 	}
@@ -48,7 +50,8 @@ void	ft_shape(t_game *smap)
 	if (i == t)
 	{
 		i = write(2, "Error\ndo you know the difference between ", 42);
-		exit (write (2, "a rectangle and the other shapes?", 33));
+		return (ft_free (smap->map),
+			exit (write (2, "a rectangle and the other shapes?", 33)));
 	}
 	else
 	{
@@ -58,23 +61,22 @@ void	ft_shape(t_game *smap)
 			if (ft_strlen(smap->map[i]) - 1 != ft_strlen(smap->map[i - 1]) - 1)
 			{
 				i = write(2, "Error\ndo you know the difference between ", 42);
-				exit (write (2, "a rectangle and the other shapes?", 33));
+				return (ft_free (smap->map),
+					exit (write (2, "a rectangle and the other shapes?", 33)));
 			}
 			i++;
 		}
 	}
 }
 
-int	check_coll(t_game *smap)
+int	check_coll(t_game *smap, int i)
 {
-	int	i;
 	int	t;
 
-	i = 0;
 	smap->cc = 0;
 	smap->cp = 0;
 	smap->ce = 0;
-	while (smap->map[i])
+	while (smap->map[++i])
 	{
 		t = 0;
 		while (smap->map[i][t])
@@ -87,10 +89,12 @@ int	check_coll(t_game *smap)
 				smap->ce++;
 			t++;
 		}
-		i++;
 	}
 	if (smap->cc == 0 || smap->cp > 1 || smap->ce > 1)
+	{
+		ft_free (smap->map);
 		exit (write (2, "Error\nerror inside the map", 27));
+	}
 	return (smap->cc);
 }
 
@@ -109,7 +113,8 @@ void	check_char(t_game *smap)
 			if (smap->map[i][t] != 'C' && smap->map[i][t] != 'P' &&
 				smap->map[i][t] != 'E' && smap->map[i][t] != '1' &&
 				smap->map[i][t] != '0')
-				exit (write (2, "Error\nunwanted character", 25));
+				return (ft_free (smap->map),
+					exit (write (2, "Error\nunwanted character", 25)));
 			t++;
 		}
 		i++;

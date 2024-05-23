@@ -6,7 +6,7 @@
 #    By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 13:43:10 by mcantell          #+#    #+#              #
-#    Updated: 2024/05/23 14:37:08 by mcantell         ###   ########.fr        #
+#    Updated: 2024/05/23 14:52:30 by mcantell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,6 @@ matrix_len.c check_path.c ft_free.c matrix_copy.c\
 %.o: %.c
 	gcc $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-norma:
-	norminette $(SRC)
 
 OBJ = $(SRC:.c=.o)
 
@@ -32,6 +30,8 @@ $(NAME): $(OBJ) $(MINILIBX)
 
 all: $(NAME)
 
+norma:
+	norminette $(SRC)
 
 clean:
 	rm -f $(OBJ)
