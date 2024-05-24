@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 16:27:25 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:26:22 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_game
 	char	**cmap;
 	int		p_x;
 	char	*cont;
+	char	*tmp;
 	int		p_y;
 	int		x;
 	int		y;
@@ -54,4 +55,6 @@ char	**matrix_copy(t_game *smap);
 char	*ft_strdup(char *s1);
 void	check_tot_1(t_game *c);
 void	check_tot(char **av, t_game *c);
+int		take(char **av, t_game *c);
+
 #endif

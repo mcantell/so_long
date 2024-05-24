@@ -6,36 +6,50 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 16:35:47 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:50:41 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	take(char **av, t_game *c)
+{
+	int	flag;
+	int	fd;
+
+	flag = 0;
+	fd = open(av[1], O_RDONLY);
+	c->tmp = get_next_line(fd, 1);
+	if (c->tmp == NULL)
+		flag = 1;
+	c->cont = malloc(1);
+	if (c->cont == NULL)
+		exit (-1);
+	c->cont[0] = '\0';
+	while (c->tmp != NULL)
+	{
+		if (c->tmp[0] == '\n')
+			flag = 1;
+		c->cont = ft_strjoin(c->cont, c->tmp);
+		c->tmp = get_next_line(fd, 1);
+	}
+	if (flag == 1)
+		flag = write (2, "Error\nerror on border\n", 23);
+	close (fd);
+	return (flag);
+}
+
 void	check_tot(char **av, t_game *c)
 {
-	int		fd;
-	char	*tmp;
+	int		flag;
 
-	if ((ft_strncmp(av[1], ".ber", 5) != 0))
-		exit (write (2, "Error\nmap not .ber\n", 19));
-	fd = open(av[1], O_RDONLY);
-	tmp = get_next_line(fd, 1);
-	if (tmp == NULL)
-		exit (write (2, "Error\nmap not found\n", 21));
-	c->cont = malloc(1);
-	if (!c->cont)
-		exit(-1);
-	c->cont[0] = '\0';
-	while (tmp != NULL)
+	flag = 0;
+	flag = take(av, c);
+	if ((ft_strncmp(av[1], ".ber", 5) == 1) || flag == 1)
 	{
-		if (*tmp == '\n')
-			return (free (c->cont), free(tmp), get_next_line(fd, 0),
-				exit (write (2, "Error\nerror border wide open\n", 30)));
-		c->cont = ft_strjoin(c->cont, tmp);
-		tmp = get_next_line(fd, 1);
+		free (c->cont);
+		exit (-1);
 	}
-	close (fd);
 	check_tot_1(c);
 }
 

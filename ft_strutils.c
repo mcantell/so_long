@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:58 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 16:14:13 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/24 12:45:30 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,18 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+//strncmp lo devo modifare per rendere la cosa piu utilizzabile nel check tot
 int	ft_strncmp(const char *str1, const char *str2, int s)
 {
 	int	i;
+	int	flag;
 
+	flag = 0;
 	i = 0;
 	if (s == 0)
 		return (0);
 	i = ft_strlen((char *)str1) - 4;
-	while (i > 0)
+	while (i > 0 && flag == 0)
 	{
 		str1++;
 		i--;
@@ -40,6 +43,11 @@ int	ft_strncmp(const char *str1, const char *str2, int s)
 		str1++;
 		str2++;
 		s--;
+	}
+	if ((*(unsigned char *)str1 - *(unsigned char *)str2) != 0)
+	{
+		i = write (2, "Error\nmap not .ber\n", 19);
+		flag = 1;
 	}
 	return (*(unsigned char *)str1 - *(unsigned char *)str2);
 }

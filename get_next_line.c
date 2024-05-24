@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:00:06 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 16:02:55 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:05:55 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*get_next_line(int fd, int i)
 	static char	*left_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (exit (write (2, "Error\nerror open", 17)), NULL);
+		return (exit (write (2, "Error\nerror open\n", 18)), NULL);
 	left_line = legge_la_linea(fd, left_line);
 	if (!left_line)
 		return (NULL);
@@ -52,6 +52,7 @@ char	*get_next_line(int fd, int i)
 	{
 		free(linea);
 		free (left_line);
+		i = write (2, "Error\nerror border wide open\n", 30);
 	}
 	return (linea);
 }
