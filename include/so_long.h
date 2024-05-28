@@ -6,14 +6,14 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/28 14:21:15 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/28 17:45:39 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "get_next_line.h"
-# define TILE_SIZE 64
+# define TILE_SIZE 100
 # define DISPLAY_NAME "Sergio"
 # include "../mlx/mlx.h"
 
@@ -57,6 +57,13 @@ typedef struct s_mlxs
 	t_game		game;
 	void		*mlx_ptr;
 	void		*mlx_win;
+	void		*floor;
+	void		*wall;
+	void		*player;
+	void		*collect;
+	void		*exit;
+	int			witdh;
+	int			height;
 }	t_mlxs;
 
 int		ft_strlen(char *str);
@@ -81,5 +88,8 @@ void	check_tot_1(t_game *c);
 void	check_tot(char **av, t_game *c);
 int		take(char **av, t_game *c);
 void	display(t_mlxs *s);
-int		close_wind(void *ser);
+int		close_wind(t_mlxs *s);
+void	texture(t_mlxs	*s);
+void	print_map(t_mlxs *s, int i, int t);
+void	print(t_mlxs *s);
 #endif

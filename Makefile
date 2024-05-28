@@ -6,7 +6,7 @@
 #    By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 13:43:10 by mcantell          #+#    #+#              #
-#    Updated: 2024/05/28 13:07:46 by mcantell         ###   ########.fr        #
+#    Updated: 2024/05/28 17:24:34 by mcantell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ MINILIBX_PATH = ./mlx
 MINILIBX = libmlx.a
 
 SRC = ft_strutils.c so_long.c get_next_line.c get_next_line_utils.c strjoin.c cop_map.c \
-matrix_len.c check_path.c ft_free.c matrix_copy.c display.c\
+matrix_len.c check_path.c ft_free.c matrix_copy.c display.c display1.c\
 
 INC = -I$(HEADER_DIR) -I$(MINILIBX_PATH)
 
