@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   strjoin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 04:51:43 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/19 05:02:26 by mcantell         ###   ########.fr       */
+/*   Created: 2024/05/09 17:40:02 by mcantell          #+#    #+#             */
+/*   Updated: 2024/05/27 18:36:47 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
-void	ft_free(char **str)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int	i;
+	char	*s;
+	int		i;
+	int		f;
 
-	if (!str)
-		return ;
 	i = 0;
-	while (str[i])
+	f = 0;
+	s = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)+ 1));
+	if (s == NULL)
+		return (NULL);
+	while (s1[i])
 	{
-		free(str[i]);
+		s[i] = s1[i];
 		i++;
 	}
-	free(str);
+	while (s2[f])
+	{
+		s[i + f] = s2[f];
+		f++;
+	}
+	s[i + f] = '\0';
+	free(s1);
+	free(s2);
+	return (s);
 }

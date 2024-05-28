@@ -6,11 +6,11 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:00:35 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 14:56:36 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:36:22 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 int	len(char *str)
 {

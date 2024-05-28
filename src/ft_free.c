@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_len.c                                       :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcantell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 14:28:00 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/10 14:41:39 by mcantell         ###   ########.fr       */
+/*   Created: 2024/05/19 04:51:43 by mcantell          #+#    #+#             */
+/*   Updated: 2024/05/27 18:36:16 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
-int	matrix_len(t_game *smap)
+void	ft_free(char **str)
 {
 	int	i;
 
+	if (!str)
+		return ;
 	i = 0;
-	while (smap->map[i])
+	while (str[i])
+	{
+		free(str[i]);
 		i++;
-	return (i);
+	}
+	free(str);
 }

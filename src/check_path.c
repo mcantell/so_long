@@ -6,11 +6,11 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 03:39:48 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 16:32:05 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:36:04 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	fill(char**tab, int size, int column, t_coord cur)
 {

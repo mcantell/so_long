@@ -6,17 +6,19 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:58 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/24 12:45:30 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 20:00:33 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);

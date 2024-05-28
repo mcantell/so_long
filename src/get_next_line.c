@@ -6,11 +6,11 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:00:06 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/24 15:05:55 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:36:28 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 char	*legge_la_linea(int fd, char *left_line)
 {

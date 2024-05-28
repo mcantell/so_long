@@ -6,11 +6,11 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:02:58 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/22 14:16:41 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:36:32 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 char	*ft_strdup(char *s1)
 {

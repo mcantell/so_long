@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strjoin.c                                          :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 17:40:02 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 14:46:36 by mcantell         ###   ########.fr       */
+/*   Created: 2024/05/27 19:21:20 by mcantell          #+#    #+#             */
+/*   Updated: 2024/05/27 20:34:19 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	display(t_mlxs *s)
 {
-	char	*s;
-	int		i;
-	int		f;
-
-	i = 0;
-	f = 0;
-	s = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)+ 1));
-	if (s == NULL)
-		return (NULL);
-	while (s1[i])
-	{
-		s[i] = s1[i];
-		i++;
-	}
-	while (s2[f])
-	{
-		s[i + f] = s2[f];
-		f++;
-	}
-	s[i + f] = '\0';
-	free(s1);
-	free(s2);
-	return (s);
+	s->wind.windl = (ft_strlen(s->game.map[0]) * TILE_SIZE);
+	s->wind.winda = (matrix_len(&(s->game)) * TILE_SIZE);
+	s->mlx_win = mlx_new_window(s->mlx_ptr, s->wind.windl,
+		s->wind.winda, DISPLAY_NAME);
 }

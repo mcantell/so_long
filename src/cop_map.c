@@ -6,11 +6,11 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:20:54 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/23 16:34:24 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:36:11 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	ft_border_cop(t_game *smap)
 {

@@ -6,32 +6,32 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/24 14:50:41 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/27 20:38:24 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
-int	take(char **av, t_game *c)
+int	take(char **av, t_game *game)
 {
 	int	flag;
 	int	fd;
 
 	flag = 0;
 	fd = open(av[1], O_RDONLY);
-	c->tmp = get_next_line(fd, 1);
-	if (c->tmp == NULL)
+	game->tmp = get_next_line(fd, 1);
+	if (game->tmp == NULL)
 		flag = 1;
-	c->cont = malloc(1);
-	if (c->cont == NULL)
+	game->cont = malloc(1);
+	if (game->cont == NULL)
 		exit (-1);
-	c->cont[0] = '\0';
-	while (c->tmp != NULL)
+	game->cont[0] = '\0';
+	while (game->tmp != NULL)
 	{
-		if (c->tmp[0] == '\n')
+		if (game->tmp[0] == '\n')
 			flag = 1;
-		c->cont = ft_strjoin(c->cont, c->tmp);
-		c->tmp = get_next_line(fd, 1);
+		game->cont = ft_strjoin(game->cont, game->tmp);
+		game->tmp = get_next_line(fd, 1);
 	}
 	if (flag == 1)
 		flag = write (2, "Error\nerror on border\n", 23);
@@ -39,39 +39,44 @@ int	take(char **av, t_game *c)
 	return (flag);
 }
 
-void	check_tot(char **av, t_game *c)
+void	check_tot(char **av, t_game *game)
 {
 	int		flag;
 
 	flag = 0;
-	flag = take(av, c);
+	flag = take(av, game);
 	if ((ft_strncmp(av[1], ".ber", 5) == 1) || flag == 1)
 	{
-		free (c->cont);
+		free (game->cont);
 		exit (-1);
 	}
-	check_tot_1(c);
+	check_tot_1(game);
 }
 
-void	check_tot_1(t_game *c)
+void	check_tot_1(t_game *game)
 {
-	t_game	smap;
-
-	smap.map = ft_split(c->cont, '\n');
-	free (c->cont);
-	ft_shape(&smap);
-	ft_border_cop(&smap);
-	check_char(&smap);
-	check_coll(&smap, -1);
-	check_path(&smap);
-	ft_free(smap.map);
+	game->map = ft_split(game->cont, '\n');
+	free (game->cont);
+	ft_shape(game);
+	ft_border_cop(game);
+	check_char(game);
+	check_coll(game, -1);
+	check_path(game);
 }
 
 int	main(int ac, char **av)
 {
-	t_game	c;
+	t_mlxs	s;
 
 	if (ac == 2)
-		check_tot(av, &c);
+	{
+		check_tot(av, &(s.game));
+		s.mlx_ptr = mlx_init();
+		if (!s.mlx_ptr)
+			exit (-1);
+		display(&s);
+		mlx_loop(s.mlx_ptr);
+		ft_free(s.game.map);
+	}
 	return (0);
 }

@@ -2,19 +2,16 @@ adesso si deve crere un giochino in 2d con l'aiuto di minilibx che e  una librer
 creata apposta per fare questo tipo di cose.
 
 Le cose da fare sono non poche:
-[ ] una tra le piu importanti e sicuramente il controllo delle mappe;
+[X] una tra le piu importanti e sicuramente il controllo delle mappe;
 	questa deve controllare un bel po di robette tra cui:
-	[ ] se c'e un solo personaggio;
-	[ ] se c'e una sola uscita;
-	[ ] se c'e almeno un collezionabile;
-	[ ] che i muri non possano essere trapassati;
+	[X] se c'e un solo personaggio;
+	[X] se c'e una sola uscita;
+	[X] se c'e almeno un collezionabile;
 	[X] che sia .ber;
 	[X] che la mappa sia apribile;
-	[ ] che la mappa sia circondata da muri;
-	[ ] che ci sia una posizione iniziale.
-[ ] non so quanto sia importante ma la mappa deve essere rettangolare;
-[ ] devo pure controllare che ci sia un percorso valido per poter arrivare all'uscita;
-[ ] ??? (nel dubbuio queste sono le cose che mi vengono in mente).
+	[X] che la mappa sia circondata da muri;
+[X] non so quanto sia importante ma la mappa deve essere rettangolare;
+[X] devo pure controllare che ci sia un percorso valido per poter arrivare all'uscita;
 
 
 [ ] bisogna cercare di capire come funziona minilibx;
@@ -25,6 +22,7 @@ Le cose da fare sono non poche:
 	lui non aumentera il numero di movimenti fatti);
 [ ] devo gestirmi bene la chiusura della finestra sia quandi si preme iil tasto esc
 	sia quando effettivamente vai a cliccare la x;
+[ ] che i muri non possano essere trapassati;
 
 
 
@@ -38,3 +36,7 @@ In tutto cio deve rispettare la norma e non deve leakare
 Devo pensare effettivamente a come procedere:
 penso che sia meglio vedere come un altro cristiano ha pensato le cose e come farle;
 so che va utilizzata un po' di roba particolare ma niente di mostruoso;
+tra le cose ho visto ci sta una funzione che ti usi per inizializarti praticamente tutto,
+una funzione per l'end_game non sarebbe male perche magari la mappa me la freeo dopo anche perche
+mi servono delle informazioni che ho gia salvato. alcune funzioni, ma non troppe per i movimenti e bisognerebbe
+cercare sulla libreria di mlx le key per i tasti da mettere all'interno del mio header.
