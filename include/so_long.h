@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/27 20:33:05 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:22:54 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define TILE_SIZE 64
 # define DISPLAY_NAME "Sergio"
 # include "../mlx/mlx.h"
+# define ON_DESTROY 17
 
 typedef struct s_coord
 {
@@ -71,4 +72,5 @@ void	check_tot_1(t_game *c);
 void	check_tot(char **av, t_game *c);
 int		take(char **av, t_game *c);
 void	display(t_mlxs *s);
+int		close_wind(void *ser);
 #endif

@@ -6,7 +6,7 @@
 #    By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 13:43:10 by mcantell          #+#    #+#              #
-#    Updated: 2024/05/27 19:48:06 by mcantell         ###   ########.fr        #
+#    Updated: 2024/05/28 13:07:46 by mcantell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,6 @@ $(MINILIBX):
 	$(MAKE) -C $(MINILIBX_PATH)
 
 all: $(NAME)
-
-norma:
-	norminette $(SRC)
 
 clean:
 	rm -f $(OBJ)

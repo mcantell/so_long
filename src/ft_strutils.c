@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:18:58 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/27 20:00:33 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:37:43 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	ft_count(const char *str, char c)
 	return (word);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char	*f;
 	size_t	t;
