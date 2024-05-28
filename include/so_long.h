@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/28 12:22:54 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:21:15 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,16 @@
 # define TILE_SIZE 64
 # define DISPLAY_NAME "Sergio"
 # include "../mlx/mlx.h"
+
 # define ON_DESTROY 17
+# define W_KEY 119
+# define A_KEY 97
+# define M_KEY 109
+# define D_KEY 100
+# define S_KEY 115
+# define LEFT_KEY 65361
+# define RIGHT_KEY 65363
+# define ESC_KEY 65307
 
 typedef struct s_coord
 {
