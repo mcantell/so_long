@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/28 13:02:07 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:15:08 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ int	main(int ac, char **av)
 		s.mlx_ptr = mlx_init();
 		if (!s.mlx_ptr)
 			exit (-1);
+		texture(&s);
 		display(&s);
 		mlx_hook(s.mlx_win, ON_DESTROY, 0, close_wind, &s);
-		// mlx_hook(s.mlx_win, 2, 0, buttons, &s);
+		mlx_hook(s.mlx_win, 2, 1L << 0, keymove, &s);
 		mlx_loop(s.mlx_ptr);
 		ft_free(s.game.map);
 	}

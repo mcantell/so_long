@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/28 17:45:39 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:04:08 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@
 # define TILE_SIZE 100
 # define DISPLAY_NAME "Sergio"
 # include "../mlx/mlx.h"
+# include "../printf/ft_printf.h"
 
 # define ON_DESTROY 17
-# define W_KEY 119
-# define A_KEY 97
-# define M_KEY 109
-# define D_KEY 100
-# define S_KEY 115
-# define LEFT_KEY 65361
-# define RIGHT_KEY 65363
-# define ESC_KEY 65307
+
+# define KEY_ARROW_RIGHT 65363
+# define KEY_ARROW_LEFT 65361
+# define KEY_ARROW_UP 65362
+# define KEY_ARROW_DOWN 65364
+
+# define KEY_D 100
+# define KEY_A 97
+# define KEY_W 119
+# define KEY_S 115
+
+# define KEY_ESC 65307
 
 typedef struct s_coord
 {
@@ -64,6 +69,7 @@ typedef struct s_mlxs
 	void		*exit;
 	int			witdh;
 	int			height;
+	int			move;
 }	t_mlxs;
 
 int		ft_strlen(char *str);
@@ -92,4 +98,10 @@ int		close_wind(t_mlxs *s);
 void	texture(t_mlxs	*s);
 void	print_map(t_mlxs *s, int i, int t);
 void	print(t_mlxs *s);
+void	ft_putnbr(int n);
+void	move_w(t_mlxs	*s);
+int		keymove(int i, void *c);
+void	move_a(t_mlxs	*s);
+void	move_s(t_mlxs	*s);
+void	move_d(t_mlxs	*s);
 #endif

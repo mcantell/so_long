@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:31:16 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/28 17:51:13 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:14:35 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ void	print(t_mlxs *s)
 
 void	print_map(t_mlxs *s, int i, int t)
 {
-	texture(s);
 	if (s->game.map[i][t] == '1')
 		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->wall, t * 100,
 		i * 100);
-	if (s->game.map[i][t] == 'P')
+	else if (s->game.map[i][t] == 'P')
 		mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->player, t * 100,
 		i * 100);
 	else if (s->game.map[i][t] == 'E')

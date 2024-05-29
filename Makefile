@@ -6,7 +6,7 @@
 #    By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/07 13:43:10 by mcantell          #+#    #+#              #
-#    Updated: 2024/05/28 17:24:34 by mcantell         ###   ########.fr        #
+#    Updated: 2024/05/29 16:51:53 by mcantell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,14 @@ HEADER_DIR = ./include
 
 SRC_DIR = ./src
 
+PRINTF_DIR = ./printf
+PRINTF = libftprintf.a
+
 MINILIBX_PATH = ./mlx
 MINILIBX = libmlx.a
 
 SRC = ft_strutils.c so_long.c get_next_line.c get_next_line_utils.c strjoin.c cop_map.c \
-matrix_len.c check_path.c ft_free.c matrix_copy.c display.c display1.c\
+matrix_len.c check_path.c ft_free.c matrix_copy.c display.c display1.c keyboard.c\
 
 INC = -I$(HEADER_DIR) -I$(MINILIBX_PATH)
 
@@ -30,11 +33,14 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 
 OBJ = $(patsubst %.c, $(SRC_DIR)/%.o, $(SRC))
 
-$(NAME): $(OBJ) $(MINILIBX)
-	gcc $(OBJ) $(CFLAGS) -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm  -o $(NAME)
+$(NAME): $(OBJ) $(MINILIBX) $(PRINTF)
+	gcc $(OBJ) $(CFLAGS) -L$(MINILIBX_PATH) -lmlx_Linux -lXext -lX11 -lm -o $(NAME) $(PRINTF_DIR)/$(PRINTF)
 
 $(MINILIBX):
 	$(MAKE) -C $(MINILIBX_PATH)
+
+$(PRINTF):
+	$(MAKE) -C $(PRINTF_DIR)
 
 all: $(NAME)
 
@@ -44,6 +50,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C $(MINILIBX_PATH) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
 
 re: fclean all
 
