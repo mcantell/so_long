@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:20:54 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/29 17:25:23 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:48:25 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	check_coll(t_game *smap, int i)
 			t++;
 		}
 	}
-	if (smap->cc == 0 || smap->cp > 1 || smap->ce == 0)
+	if (smap->cc == 0 || smap->cp > 1 || smap->ce > 1)
 	{
 		ft_free (smap->map);
 		exit (write (2, "Error\nerror inside the map", 27));

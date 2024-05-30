@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 03:39:48 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/27 18:36:04 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:47:19 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void	fill(char**tab, int size, int column, t_coord cur)
 		|| cur.side >= size || tab[cur.side][cur.colum] == '1'
 		|| tab[cur.side][cur.colum] == 'F')
 		return ;
+	if (tab[cur.side][cur.colum] == 'E')
+		{
+			tab[cur.side][cur.colum] = 'F';
+			return ;
+		}
 	tab[cur.side][cur.colum] = 'F';
 	fill(tab, size, column, (t_coord){cur.side - 1, cur.colum});
 	fill(tab, size, column, (t_coord){cur.side + 1, cur.colum});

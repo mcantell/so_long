@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/29 16:15:08 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:33:33 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
+		val_init(&s);
 		check_tot(av, &(s.game));
 		s.mlx_ptr = mlx_init();
 		if (!s.mlx_ptr)

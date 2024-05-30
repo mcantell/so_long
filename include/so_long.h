@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/29 16:04:08 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:33:59 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,5 @@ int		keymove(int i, void *c);
 void	move_a(t_mlxs	*s);
 void	move_s(t_mlxs	*s);
 void	move_d(t_mlxs	*s);
+void	val_init(t_mlxs *s);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 19:21:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/28 17:47:30 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:27:26 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	texture(t_mlxs *s)
 	s->collect = mlx_xpm_file_to_image(s->mlx_ptr, "texture/stimpak.xpm", &s->witdh, &s->height);
 	s->exit =  mlx_xpm_file_to_image(s->mlx_ptr, "texture/vault_door.xpm", &s->witdh, &s->height);
 	s->wall =  mlx_xpm_file_to_image(s->mlx_ptr, "texture/wall.xpm", &s->witdh, &s->height);
-	s->player =  mlx_xpm_file_to_image(s->mlx_ptr, "texture/armatura.xpm", &s->witdh, &s->height);
+	s->player =  mlx_xpm_file_to_image(s->mlx_ptr, "texture/armor.xpm", &s->witdh, &s->height);
 }
