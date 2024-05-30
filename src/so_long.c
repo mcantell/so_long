@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:01:13 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/30 12:33:33 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:24:26 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	take(char **av, t_game *game)
 		game->tmp = get_next_line(fd, 1);
 	}
 	if (flag == 1)
-		flag = write (2, "Error\nerror on border\n", 23);
+			return (flag = write (2, "Error\nerror on border\n", 23));
 	close (fd);
 	return (flag);
 }
@@ -45,6 +45,11 @@ void	check_tot(char **av, t_game *game)
 
 	flag = 0;
 	flag = take(av, game);
+	if (flag == 23)
+	{
+		free (game->cont);
+		exit(-1);
+	}
 	if ((ft_strncmp(av[1], ".ber", 5) == 1) || flag == 1)
 	{
 		free (game->cont);

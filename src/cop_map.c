@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:20:54 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/30 12:48:25 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:33:58 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,17 @@ void	ft_border_cop(t_game *smap)
 void	ft_shape(t_game *smap)
 {
 	int	i;
-	int	t;
 
-	i = matrix_len(smap) - 1;
-	t = ft_strlen(smap->map[i]) - 1;
-	if (i == t)
+	i = 1;
+	while (i != matrix_len(smap))
 	{
-		i = write(2, "Error\ndo you know the difference between ", 42);
-		return (ft_free (smap->map),
-			exit (write (2, "a rectangle and the other shapes?", 33)));
-	}
-	else
-	{
-		i = 1;
-		while (i != matrix_len(smap))
+		if (ft_strlen(smap->map[i]) != ft_strlen(smap->map[i - 1]))
 		{
-			if (ft_strlen(smap->map[i]) - 1 != ft_strlen(smap->map[i - 1]) - 1)
-			{
-				i = write(2, "Error\ndo you know the difference between ", 42);
-				return (ft_free (smap->map),
-					exit (write (2, "a rectangle and the other shapes?", 33)));
-			}
-			i++;
+			i = write(2, "Error\ndo you know the difference between ", 42);
+			ft_free (smap->map),
+			exit (write (2, "a rectangle and the other shapes?", 33));
 		}
+		i++;
 	}
 }
 
@@ -90,7 +78,7 @@ int	check_coll(t_game *smap, int i)
 			t++;
 		}
 	}
-	if (smap->cc == 0 || smap->cp > 1 || smap->ce > 1)
+	if (smap->cc == 0 || smap->cp > 1 || smap->ce > 1 || smap->ce == 0)
 	{
 		ft_free (smap->map);
 		exit (write (2, "Error\nerror inside the map", 27));

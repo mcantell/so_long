@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:05:11 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/30 12:38:06 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:44:32 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	move_w(t_mlxs	*s)
 		s->game.cc == 0)
 		{
 			ft_free(s->game.map);
+			s->move++;
+			ft_printf("Move did :%d\n", s->move++);
 			exit (0);
 		}
 		if (s->game.map[s->coordinate.side - 1][s->coordinate.colum] == 'E' &&
@@ -33,8 +35,8 @@ void	move_w(t_mlxs	*s)
 		s->game.map[s->coordinate.side][s->coordinate.colum] = '0';
 		s->coordinate.side--;
 		s->move++;
-		write (1, "\nMove did :", 11);
-		ft_printf("%d", s->move);
+		write (1, "Move did :", 11);
+		ft_printf("%d\n", s->move);
 	}
 }
 
@@ -50,6 +52,8 @@ void	move_a(t_mlxs	*s)
 		s->game.cc == 0)
 		{
 			ft_free(s->game.map);
+			s->move++;
+			ft_printf("Move did :%d\n", s->move++);
 			exit (0);
 		}
 		if (s->game.map[s->coordinate.side][s->coordinate.colum - 1] == 'E' &&
@@ -59,8 +63,8 @@ void	move_a(t_mlxs	*s)
 		s->game.map[s->coordinate.side][s->coordinate.colum] = '0';
 		s->coordinate.colum--;
 		s->move++;
-		write (1, "\nMove did :", 11);
-		ft_printf("%d", s->move);
+		write (1, "Move did :", 11);
+		ft_printf("%d\n", s->move);
 	}
 }
 
@@ -76,6 +80,8 @@ void	move_s(t_mlxs	*s)
 		s->game.cc == 0)
 		{
 			ft_free(s->game.map);
+			s->move++;
+			ft_printf("Move did :%d\n", s->move++);
 			exit (0);
 		}
 		if (s->game.map[s->coordinate.side + 1][s->coordinate.colum] == 'E' &&
@@ -85,8 +91,8 @@ void	move_s(t_mlxs	*s)
 		s->game.map[s->coordinate.side][s->coordinate.colum] = '0';
 		s->coordinate.side++;
 		s->move++;
-		write (1, "\nMove did :", 11);
-		ft_printf("%d", s->move);
+		write (1, "Move did :", 11);
+		ft_printf("%d\n", s->move);
 	}
 }
 
@@ -102,6 +108,8 @@ void	move_d(t_mlxs	*s)
 		s->game.cc == 0)
 		{
 			ft_free(s->game.map);
+			s->move++;
+			ft_printf("Move did :%d\n", s->move);
 			exit (0);
 		}
 		if (s->game.map[s->coordinate.side][s->coordinate.colum + 1] == 'E' &&
@@ -111,8 +119,8 @@ void	move_d(t_mlxs	*s)
 		s->game.map[s->coordinate.side][s->coordinate.colum] = '0';
 		s->coordinate.colum++;
 		s->move++;
-		write (1, "\nMove did :", 11);
-		ft_printf("%d", s->move);
+		write (1, "Move did :", 11);
+		ft_printf("%d\n", s->move);
 	}
 }
 
