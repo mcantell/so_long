@@ -6,15 +6,17 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:45:20 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/30 12:33:59 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:27:02 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "get_next_line.h"
+
 # define TILE_SIZE 100
 # define DISPLAY_NAME "Sergio"
+
+# include "get_next_line.h"
 # include "../mlx/mlx.h"
 # include "../printf/ft_printf.h"
 

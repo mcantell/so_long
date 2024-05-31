@@ -6,7 +6,7 @@
 /*   By: mcantell <mcantell@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:05:11 by mcantell          #+#    #+#             */
-/*   Updated: 2024/05/30 15:44:32 by mcantell         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:31:17 by mcantell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void	move_d(t_mlxs	*s)
 int	keymove(int i, void *c)
 {
 	t_mlxs	*s;
+
 	s = c;
 	if (i == KEY_W || i == KEY_ARROW_UP)
 		move_w(s);
@@ -137,10 +138,10 @@ int	keymove(int i, void *c)
 	if (i == KEY_S || i == KEY_ARROW_DOWN)
 		move_s(s);
 	if (i == KEY_ESC)
-		{
-			ft_free(s->game.map);
-			exit (0);
-		}
+	{
+		ft_free(s->game.map);
+		exit (0);
+	}
 	print(s);
 	return (1);
 }
